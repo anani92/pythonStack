@@ -14,5 +14,10 @@ def show_8_by_4():
 def board_x_y(x, y):
   return render_template('index.html', x=int(x/2), y=int(y/2))
 
+
+@app.route('/<int:x>/<int:y>/<color_x>/<color_y>')
+def board_with_colors(x, y,color_x, color_y):
+  return render_template('index.html', x=int(x/2), y=int(y/2), color_x = color_x, color_y = color_y)
+
 if __name__ == '__main__':
   app.run(debug=True)

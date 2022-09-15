@@ -12,14 +12,14 @@
     {%for i in range(x):%}
         <tr>
           {%for j in range(y):%}
-          <td class="panel-y"></td>
-          <td class="panel-x"></td>
+          <td class="panel-y" style=" background-color:  {{color_y or white}};"></td>
+          <td class="panel-x" style=" background-color:  {{color_x or black}};"></td>
           {%endfor%}
         </tr>
         <tr>
           {%for j in range(y):%}
-          <td class="panel-x"></td>
-          <td class="panel-y"></td>
+          <td class="panel-x" style=" background-color:  {{color_x or black}};"></td>
+          <td class="panel-y" style=" background-color:  {{color_y or white}};"></td>
           {%endfor%}
         </tr>
 
