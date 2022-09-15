@@ -1,3 +1,4 @@
+from math import prod
 from products import Product
 class Store:
   def __init__(self, name) -> None:
@@ -9,8 +10,10 @@ class Store:
     self.products.append(new_product)
 
   def sell_product(self, id):
-    print(f'sold {self.products[id].name} ')
-    del self.products[id]
+    for product in self.products:
+      if product.id == id:
+        self.products.remove(product)
+        print(f'sold {product.name}')
 
 
   def inflation(self, percent_increase):
