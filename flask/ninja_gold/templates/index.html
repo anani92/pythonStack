@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ninja gold</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .activity {
+      box-sizing: border-box;
+      overflow: scroll;
+      overflow-x: auto;
+      height: 12.5rem;
+      width: 50%;
+      margin: 3em auto;
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light text-black">
+
+  <div class="container-fluid m-5">
+    <h3 class="d-inline-block">your gold:</h3>
+    <h3 class=" text-success border p-2 text-lg-center d-inline-block w-50 text-xl-left">{{gold}}</h3>
+  </div>
+  <div class="container d-lg-inline-flex">
+    <div class="farm w-75 border m-2 p-4">
+      <h4>Farm</h4>
+      <p>(earn/lose 1-8 gold)</p>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="mine" value="farming" />
+        <input type="submit" value="Find Gold!"  class="btn btn-outline-dark btn-lg" />
+      </form>
+    </div>
+
+    <div class="cave w-75 border m-2 p-4">
+      <h4>Cave</h4>
+      <p>(earn/lose 5-10 gold)</p>
+      <form action="process_money" method="POST">
+        <input type="hidden" name="mine" value="caving" />
+        <input type="submit" value="caving!" class="btn btn-outline-dark btn-lg" />
+      </form>
+    </div>
+
+    <div class="house w-75 border m-2 p-4">
+      <h4>Loot</h4>
+      <p>(earn/lose 2-5 gold)</p>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="mine" value="looting">
+        <input type="submit" class="btn btn-outline-dark btn-lg" value="Loot!">
+
+      </form>
+    </div>
+
+    <div class="casino  w-75 border m-2 p-4">
+      <h4>Casino</h4>
+      <p>(earn/lose 10-100 gold)</p>
+      <form action="/process_money" method="POST">
+        <input type="hidden" value="casino-play" name="mine">
+        <input type="submit" value="play" class="btn btn-outline-dark btn-lg" >
+      </form>
+    </div>
+  </div>
+
+  <div class="activity border-top">
+    {% for activity in activity_log: %}
+    <p class="text text-success">{{activity | safe}}</p>
+
+    {%endfor%}
+
+  </div>
+  <div class="reset text-center border-top m-auto p-3">
+    <a href="/restart"><button name="reset" value="Reset" class="reset btn btn-danger btn-lg" >Restart</button>
+    </a>
+  </div>
+</body>
+</html>
