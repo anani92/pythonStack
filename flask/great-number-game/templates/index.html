@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess game</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .hintbox{
+    width: 12.5rem;
+    height: 12.5rem;
+    margin-left: 40%;
+    text-align: center;
+    padding: 2rem;
+    background-color:{{box_color}};
+    }
+  </style>
+</head>
+<body class="bg-secondary text-white">
+
+
+  <div class="container-fluid my-5">
+    <h3 class="text text-center">Welcome to Guess the Number Game!</h3>
+    <h3 class="text text-center py-2">I'm thinking of a number between 0 and 100</h3>
+    <h3 class="text text-center text-primary my-5">Take a guess!</h3>
+    <div class="hintbox">
+      <h4 class="h4">
+        {{box_text}}
+      </h4>
+      {{reset_button}}
+    </div>
+  </div>
+
+
+  <form action="/guess" method="POST" class="form mx-5 form-center">
+    <input type="text" name="guess_input" class="form-control text-lg">
+    <input type="submit" value="Submit" class="btn btn-success my-4 btn-lg btn-block">
+  </form>
+</body>
+</html>
